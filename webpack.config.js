@@ -3,15 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 
-const CESIUM_BASE_URL = '/cesium/';
-
 module.exports = {
   mode: 'development',
   entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: "/airplane-logs/"
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -43,15 +40,13 @@ module.exports = {
       template: 'public/index.html',
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: 'node_modules/cesium/Build/Cesium', to: 'cesium' }],
-    }),
-    new CopyWebpackPlugin({
       patterns: [
-        { from: "public", to: ".", globOptions: { ignore: ["**/index.html"] }  }, // ✅ Копируем public в dist
+        { from: "public", to: ".", globOptions: { ignore: ["**/index.html"] }  },
+        { from: 'node_modules/cesium/Build/Cesium', to: 'cesium' }
       ],
     }),
     new DefinePlugin({
-      CESIUM_BASE_URL: JSON.stringify(CESIUM_BASE_URL),
+      CESIUM_BASE_URL: JSON.stringify("/cesium"),
     }),
   ],
   devServer: {
