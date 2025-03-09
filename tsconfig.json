@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true, // ✅ Разрешаем JavaScript
+    "noEmit": false, // ✅ Разрешаем компиляцию
+    "outDir": "dist", // ✅ Указываем выходную папку
+    "moduleResolution": "node"
+  },
+  "include": ["src"], // ✅ Добавляем исходные файлы
+  "exclude": ["node_modules", "dist"]
+}
