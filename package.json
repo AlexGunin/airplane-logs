@@ -2,7 +2,7 @@
   "name": "airplane-logs",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://github.com/AlexGunin/airplane-logs",
+  "homepage": "https://github.com/AlexGunin.github.io/airplane-logs",
   "scripts": {
     "dev": "webpack serve",
     "build": "tsc -b && webpack build",
