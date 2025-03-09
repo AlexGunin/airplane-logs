@@ -11,6 +11,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: "/airplane-logs/"
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -43,6 +44,11 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [{ from: 'node_modules/cesium/Build/Cesium', to: 'cesium' }],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "public", to: ".", globOptions: { ignore: ["**/index.html"] }  }, // ✅ Копируем public в dist
+      ],
     }),
     new DefinePlugin({
       CESIUM_BASE_URL: JSON.stringify(CESIUM_BASE_URL),
