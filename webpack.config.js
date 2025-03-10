@@ -3,12 +3,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 
+const isProd = process.env.NODE_ENV === "production"; // ✅ Определяем режим
+
 module.exports = {
   mode: 'development',
   entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: isProd ? "/airplane-logs/" : "/"
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],

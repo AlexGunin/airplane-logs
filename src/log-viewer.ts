@@ -10,6 +10,7 @@ import {
   VelocityOrientationProperty,
   Viewer,
 } from 'cesium';
+import { ION_ACCESS_TOKEN } from './constants';
 
 interface GeoPoint {
   longitude: number;
@@ -17,8 +18,7 @@ interface GeoPoint {
   height: number;
 }
 
-Ion.defaultAccessToken =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkNGRkYWI5My00MjQxLTRiYTUtYjFhNy1jYWJjNDk2YjE5MDciLCJpZCI6MjgyNjY1LCJpYXQiOjE3NDE1NDMzNDV9.GvXa324iyBCnvzw3nKTO_RRdnDqRcXT8q3K8jApt3lw';
+Ion.defaultAccessToken = ION_ACCESS_TOKEN
 const TIME_STEP_IN_SECONDS = 30;
 
 export class LogViewer {

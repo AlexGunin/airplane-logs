@@ -1,4 +1,4 @@
-import { CesiumMap } from './CesiumMap';
+import { CesiumMap } from './cesium-map';
 
 function App() {
   return <CesiumMap />;
