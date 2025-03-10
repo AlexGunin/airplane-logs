@@ -1,26 +1,2 @@
-/**
- * @license
- * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.127
- *
- * Copyright 2011-2022 Cesium Contributors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- * Columbus View (Pat. Pend.)
- *
- * Portions licensed separately.
- * See https://github.com/CesiumGS/cesium/blob/main/LICENSE.md for full licensing details.
- */
-
-import{a as h}from"./chunk-O3CFQFRB.js";import{a as n,c as y,e as a}from"./chunk-JMSSU44E.js";import{b as f}from"./chunk-GE5NEIZC.js";var x={},b=new n,P=new n,B=new n,M=new n,w=new h;x.validOutline=function(i){f.defined("positions",i);let o=h.fromPoints(i,w).halfAxes,e=a.getColumn(o,0,P),r=a.getColumn(o,1,B),t=a.getColumn(o,2,M),u=n.magnitude(e),s=n.magnitude(r),l=n.magnitude(t);return!(u===0&&(s===0||l===0)||s===0&&l===0)};x.computeProjectTo2DArguments=function(i,c,o,e){f.defined("positions",i),f.defined("centerResult",c),f.defined("planeAxis1Result",o),f.defined("planeAxis2Result",e);let r=h.fromPoints(i,w),t=r.halfAxes,u=a.getColumn(t,0,P),s=a.getColumn(t,1,B),l=a.getColumn(t,2,M),A=n.magnitude(u),d=n.magnitude(s),g=n.magnitude(l),m=Math.min(A,d,g);if(A===0&&(d===0||g===0)||d===0&&g===0)return!1;let p,C;return(m===d||m===g)&&(p=u),m===A?p=s:m===g&&(C=s),(m===A||m===d)&&(C=l),n.normalize(p,o),n.normalize(C,e),n.clone(r.center,c),!0};function z(i,c,o,e,r){let t=n.subtract(i,c,b),u=n.dot(o,t),s=n.dot(e,t);return y.fromElements(u,s,r)}x.createProjectPointsTo2DFunction=function(i,c,o){return function(e){let r=new Array(e.length);for(let t=0;t<e.length;t++)r[t]=z(e[t],i,c,o);return r}};x.createProjectPointTo2DFunction=function(i,c,o){return function(e,r){return z(e,i,c,o,r)}};var O=x;export{O as a};
+/*! For license information please see chunk-RSJQ5FUT.js.LICENSE.txt */
+import{a as h}from"./chunk-O3CFQFRB.js";import{a as n,c as y,e as a}from"./chunk-JMSSU44E.js";import{b as f}from"./chunk-GE5NEIZC.js";var x={},b=new n,P=new n,B=new n,M=new n,w=new h;function z(e,t,o,r,i){let u=n.subtract(e,t,b),a=n.dot(o,u),f=n.dot(r,u);return y.fromElements(a,f,i)}x.validOutline=function(e){f.defined("positions",e);let t=h.fromPoints(e,w).halfAxes,o=a.getColumn(t,0,P),r=a.getColumn(t,1,B),i=a.getColumn(t,2,M),u=n.magnitude(o),m=n.magnitude(r),l=n.magnitude(i);return!(0===u&&(0===m||0===l)||0===m&&0===l)},x.computeProjectTo2DArguments=function(e,t,o,r){f.defined("positions",e),f.defined("centerResult",t),f.defined("planeAxis1Result",o),f.defined("planeAxis2Result",r);let i,u,m=h.fromPoints(e,w),l=m.halfAxes,s=a.getColumn(l,0,P),c=a.getColumn(l,1,B),d=a.getColumn(l,2,M),g=n.magnitude(s),x=n.magnitude(c),p=n.magnitude(d),C=Math.min(g,x,p);return(0!==g||0!==x&&0!==p)&&(0!==x||0!==p)&&((C===x||C===p)&&(i=s),C===g?i=c:C===p&&(u=c),(C===g||C===x)&&(u=d),n.normalize(i,o),n.normalize(u,r),n.clone(m.center,t),!0)},x.createProjectPointsTo2DFunction=function(n,e,t){return function(o){let r=new Array(o.length);for(let i=0;i<o.length;i++)r[i]=z(o[i],n,e,t);return r}},x.createProjectPointTo2DFunction=function(n,e,t){return function(o,r){return z(o,n,e,t,r)}};var O=x;export{O as a};
