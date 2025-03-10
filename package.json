@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "homepage": "https://github.com/AlexGunin.github.io/airplane-logs",
   "scripts": {
-    "dev": "webpack serve",
-    "build": "tsc -b && webpack build",
+    "dev": "webpack serve --mode development",
+    "prod": "webpack serve --mode production",
+    "build": "tsc -b && webpack build --mode production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
