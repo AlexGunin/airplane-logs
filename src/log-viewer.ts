@@ -40,7 +40,7 @@ export class LogViewer {
       ]),
       position: positionProperty,
       model: {
-        uri: '/airplane.glb',
+        uri: `${ASSETS_PUBLIC_PATH}airplane.glb`,
       },
       orientation: new VelocityOrientationProperty(positionProperty),
       path: new PathGraphics({ width: 3 }),

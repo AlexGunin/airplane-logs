@@ -53,6 +53,7 @@ module.exports = (env, argv) => {
       }),
       new DefinePlugin({
         CESIUM_BASE_URL: JSON.stringify(`${publicPath}cesium`),
+        ASSETS_PUBLIC_PATH: JSON.stringify(publicPath),
       }),
     ],
     devServer: {
