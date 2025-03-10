@@ -3,15 +3,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 
-const isProd = process.env.NODE_ENV === "production"; // ✅ Определяем режим
+const isProd = process.env.NODE_ENV === "production";
+
+const publicPath = isProd ? "/airplane-logs" : "/"
 
 module.exports = {
-  mode: 'development',
+  mode: isProd ? 'production' : 'development',
   entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: isProd ? "/airplane-logs/" : "/"
+    publicPath
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -24,16 +26,16 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.css$/, // ✅ Добавляем загрузку CSS
+        test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.wasm$/, // FIX: WebAssembly
+        test: /\.wasm$/,
         type: 'javascript/auto',
         loader: 'file-loader',
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg|xml)$/, // FIX: ассеты Cesium
+        test: /\.(png|jpg|jpeg|gif|svg|xml)$/,
         loader: 'file-loader',
       },
     ],
@@ -49,7 +51,7 @@ module.exports = {
       ],
     }),
     new DefinePlugin({
-      CESIUM_BASE_URL: JSON.stringify("/cesium"),
+      CESIUM_BASE_URL: isProd ? JSON.stringify(`${publicPath}/cesium`) : JSON.stringify("/cesium"),
     }),
   ],
   devServer: {
@@ -57,7 +59,7 @@ module.exports = {
     port: 3000,
   },
   experiments: {
-    asyncWebAssembly: true, // FIX: Разрешаем WebAssembly
+    asyncWebAssembly: true,
     syncWebAssembly: true,
   },
 };
