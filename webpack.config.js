@@ -5,7 +5,7 @@ const { DefinePlugin } = require('webpack');
 
 const isProd = process.env.NODE_ENV === "production";
 
-const publicPath = isProd ? "/airplane-logs" : "/"
+const publicPath = isProd ? "/airplane-logs/" : "/"
 
 module.exports = {
   mode: isProd ? 'production' : 'development',
@@ -51,7 +51,7 @@ module.exports = {
       ],
     }),
     new DefinePlugin({
-      CESIUM_BASE_URL: isProd ? JSON.stringify(`${publicPath}/cesium`) : JSON.stringify("/cesium"),
+      CESIUM_BASE_URL: JSON.stringify(`${publicPath}cesium`),
     }),
   ],
   devServer: {
