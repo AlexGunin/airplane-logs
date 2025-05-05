@@ -14,7 +14,21 @@ export const loadCesiumViewer = async () => {
 
   const viewer = new Viewer('cesiumContainer', {
     terrainProvider: terrain,
+    // shouldAnimate: false,
+    baseLayerPicker: false,
+    // timeline: false,
+    // animation: false,
+    infoBox: false,
+    geocoder: false,
+    homeButton: false,
+    sceneModePicker: false,
+    navigationHelpButton: false,
   });
+
+  viewer.scene.skyAtmosphere.show = false;
+  viewer.scene.globe.enableLighting = false;
+  viewer.scene.fog.enabled = false;
+  viewer.shadows = false;
 
   await initBuildings(viewer);
 

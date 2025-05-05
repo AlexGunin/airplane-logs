@@ -5,7 +5,7 @@ const { DefinePlugin } = require('webpack');
 
 module.exports = (env, argv) => {
   const isProd = argv.mode === 'production';
-  const publicPath = isProd ? "/airplane-logs/" : "/"
+  const publicPath = isProd ? '/airplane-logs/' : '/';
 
   return {
     mode: argv.mode,
@@ -13,13 +13,21 @@ module.exports = (env, argv) => {
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, 'dist'),
-      publicPath
+      publicPath,
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.js'],
     },
     module: {
       rules: [
+        {
+          test: /\.worker\.(js|ts)$/, // 👈 правило для worker-файлов
+          loader: 'worker-loader',
+          options: {
+            esModule: true,
+            inline: 'no-fallback', // Настройка под твой проект
+          },
+        },
         {
           test: /\.tsx?$/,
           use: 'ts-loader',
@@ -43,12 +51,12 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: 'public/index.html',
-        publicPath
+        publicPath,
       }),
       new CopyWebpackPlugin({
         patterns: [
-          { from: "public", to: ".", globOptions: { ignore: ["**/index.html"] }  },
-          { from: 'node_modules/cesium/Build/Cesium', to: 'cesium' }
+          { from: 'public', to: '.', globOptions: { ignore: ['**/index.html'] } },
+          { from: 'node_modules/cesium/Build/Cesium', to: 'cesium' },
         ],
       }),
       new DefinePlugin({
@@ -64,5 +72,5 @@ module.exports = (env, argv) => {
       asyncWebAssembly: true,
       syncWebAssembly: true,
     },
-  }
+  };
 };
