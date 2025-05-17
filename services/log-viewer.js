@@ -1,8 +1,9 @@
-import { Cartesian3, ConstantProperty, Ion, JulianDate, Quaternion, SampledPositionProperty, TimeInterval, TimeIntervalCollection, } from 'cesium';
-import { ION_ACCESS_TOKEN } from '../constants';
+import { Cartesian3, ConstantProperty, 
+// Ion,
+JulianDate, Quaternion, SampledPositionProperty, TimeInterval, TimeIntervalCollection, } from 'cesium';
 import * as Cesium from 'cesium';
 import { isUtc } from '../utils/iso';
-Ion.defaultAccessToken = ION_ACCESS_TOKEN;
+// Ion.defaultAccessToken = ION_ACCESS_TOKEN;
 const TIME_STEP_IN_SECONDS = 30;
 const findTimeIndex = (points, currentTime) => {
     let low = 0;

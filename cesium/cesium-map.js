@@ -16,6 +16,7 @@ import { CatmullRomService } from '../services/catmull-rom/catmull-rom-service';
 import { SettingsButton } from '../components/settings-button';
 import { useSettingsProvider } from '../providers/settings-provider';
 import { safeParseArray } from '../utils/safe-parse';
+import { VIEWER_CONTAINER_ID } from '../constants';
 const csvService = new CsvParser();
 const catmullRomService = new CatmullRomService();
 export const CesiumMap = () => {
@@ -56,5 +57,5 @@ export const CesiumMap = () => {
         }
         isFirstClick.current = false;
     };
-    return (_jsxs("div", { id: "cesiumContainer", style: { width: '100vw', height: '100vh', position: 'relative' }, children: [_jsx(Flex, { style: { position: 'absolute', left: 5, top: 5, zIndex: 1, gap: 8 }, children: viewer ? _jsx(HUD, { viewer: viewer }) : null }), _jsxs(Stack, { style: { position: 'absolute', right: 5, top: 5, zIndex: 1, gap: 8 }, children: [_jsx(PlayButton, { isPlaying: isPlaying, onClick: handleClickPlayButton }), _jsx(LoadButton, { onLoad: handleLoadFile }), _jsx(SettingsButton, {}), viewer ? _jsx(ShowTrajectoryButton, { viewer: viewer }) : null] })] }));
+    return (_jsxs("div", { id: VIEWER_CONTAINER_ID, style: { width: '100vw', height: '100vh', position: 'relative' }, children: [_jsx(Flex, { style: { position: 'absolute', left: 5, top: 5, zIndex: 1, gap: 8 }, children: viewer ? _jsx(HUD, { viewer: viewer }) : null }), _jsxs(Stack, { style: { position: 'absolute', right: 5, top: 5, zIndex: 1, gap: 8 }, children: [_jsx(PlayButton, { isPlaying: isPlaying, onClick: handleClickPlayButton }), _jsx(LoadButton, { onLoad: handleLoadFile }), _jsx(SettingsButton, {}), viewer ? _jsx(ShowTrajectoryButton, { viewer: viewer }) : null] })] }));
 };
