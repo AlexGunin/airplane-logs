@@ -15,6 +15,7 @@ import { CatmullRomService } from '../services/catmull-rom/catmull-rom-service';
 import { SettingsButton } from '../components/settings-button';
 import { useSettingsProvider } from '../providers/settings-provider';
 import { safeParseArray } from '../utils/safe-parse';
+import { VIEWER_CONTAINER_ID } from '../constants';
 
 const csvService = new CsvParser();
 const catmullRomService = new CatmullRomService();
@@ -70,7 +71,7 @@ export const CesiumMap = () => {
   };
 
   return (
-    <div id="cesiumContainer" style={{ width: '100vw', height: '100vh', position: 'relative' }}>
+    <div id={VIEWER_CONTAINER_ID} style={{ width: '100vw', height: '100vh', position: 'relative' }}>
       <Flex style={{ position: 'absolute', left: 5, top: 5, zIndex: 1, gap: 8 }}>
         {viewer ? <HUD viewer={viewer} /> : null}
       </Flex>

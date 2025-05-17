@@ -1,7 +1,7 @@
 import {
   Cartesian3,
   ConstantProperty,
-  Ion,
+  // Ion,
   JulianDate,
   Quaternion,
   SampledPositionProperty,
@@ -9,12 +9,12 @@ import {
   TimeIntervalCollection,
   Viewer,
 } from 'cesium';
-import { ION_ACCESS_TOKEN } from '../constants';
+// import { ION_ACCESS_TOKEN } from '../constants';
 import type { FlyPointScheme } from '../fly-scheme';
 import * as Cesium from 'cesium';
 import { isUtc } from '../utils/iso';
 
-Ion.defaultAccessToken = ION_ACCESS_TOKEN;
+// Ion.defaultAccessToken = ION_ACCESS_TOKEN;
 const TIME_STEP_IN_SECONDS = 30;
 
 type State = 'idle' | 'stopped' | 'active';

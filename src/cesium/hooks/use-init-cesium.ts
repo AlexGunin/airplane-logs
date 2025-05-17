@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { loadCesiumViewer } from '../load-cesium-viewer';
 import { LogViewer } from '../../services/log-viewer';
 
