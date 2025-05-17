@@ -24,7 +24,7 @@ const tilesProvider = new ProviderViewModel({
   tooltip: 'Мои локальные растровые тайлы',
   creationFunction: () =>
     new UrlTemplateImageryProvider({
-      url: 'http://air-logs.duckdns.org/services/world/tiles/{z}/{x}/{y}.png',
+      url: 'https://air-logs.duckdns.org/services/world/tiles/{z}/{x}/{y}.png',
       minimumLevel: 0,
       maximumLevel: 8,
     }),
